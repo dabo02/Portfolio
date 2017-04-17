@@ -25,11 +25,16 @@ def send_email():
     msg = request.form['message']
     mail_to_send = Message(subject=subj,
                            recipients=['dabo021213@gmail.com'],
-                           body=msg + 'From: ' + name + ' with email: ' + email,
+                           body=msg + ' From: ' + name + ' with email: ' + email,
                            sender=(name, email))
     # Send the message via our own SMTP server.
     mail.send(mail_to_send)
     return redirect('/', code=301)
+
+
+@app.route('/video_chat')
+def video_chat():
+    return render_template('video_chat.html')
 
 if __name__ == '__main__':
     import socket as s
