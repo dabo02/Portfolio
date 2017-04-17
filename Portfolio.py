@@ -4,9 +4,11 @@ from flask_mail import Message, Mail
 app = Flask(__name__)
 mail = Mail(app)
 
+
 @app.route('/')
 def my_site():
     return render_template('index.html')
+
 
 @app.route('/send_email', methods=['POST'])
 def send_email():
@@ -23,6 +25,8 @@ def send_email():
     return redirect('/', code=200)
 
 if __name__ == '__main__':
-    app.config['DEBUG'] = True
-    mail.init_app(app)
-    app.run()
+    import socket as s
+    if 'liveconsole' not in s.gethostname():
+        app.config['DEBUG'] = True
+        mail.init_app(app)
+        app.run()
