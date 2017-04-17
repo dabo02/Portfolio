@@ -2,7 +2,6 @@ from flask import Flask, render_template, request, redirect, url_for
 from flask_mail import Message, Mail
 
 app = Flask(__name__)
-mail = Mail(app)
 app.config.update(DEBUG = True,
     MAIL_SERVER = 'smtp.live.com',
     MAIL_PORT = 587,
@@ -11,7 +10,7 @@ app.config.update(DEBUG = True,
     MAIL_USERNAME = 'dabo_02@live.com',
     MAIL_PASSWORD = 'nomeronques2',
     DEFAULT_MAIL_SENDER = 'dabo_02@live.com')
-
+mail = Mail(app)
 @app.route('/')
 def my_site():
     return render_template('index.html')

@@ -142,13 +142,20 @@ SimpleVideoChat.prototype.initialize = function(){
                                 var event = result["event"];
                                 if(event === 'registered') {
                                     self.username = result["username"];
-                                    bootbox.alert("Successfully registered as " + self.username + "!");
-                                    $('#login').addClass('hide');
-                                    $('#phone').removeClass('hide').show();
-                                    $('#call').unbind('click').click(self.doCall);
-                                    $('#peer').focus();
-                                    // Get a list of available peers, just for fun
-                                    self.chatHandler.send({"message": { "request": "list" }});
+                                    $('#intro').addClass('hide');
+                                    $('#username').addClass('hide');
+                                    $('#register').addClass('hide');
+                                    $('#youok').removeClass('hide').show().html("Registered as '" + self.username + "' let's get started!");
+                                    setTimeout(function(){
+                                        $('#login').addClass('hide');
+                                        $('#youok').addClass('hide');
+                                        $('#phone').removeClass('hide').show();
+                                        $('#call').unbind('click').click(self.doCall);
+                                        $('#peer').focus();
+                                        // Get a list of available peers, just for fun
+                                        self.chatHandler.send({"message": { "request": "list" }});
+                                    }, 3500)
+
                                     // TODO Enable buttons to call now
                                 } else if(event === 'calling') {
                                     Janus.debug("Waiting for the peer to answer...");
@@ -162,6 +169,7 @@ SimpleVideoChat.prototype.initialize = function(){
                                     var peer = result["username"];
                                     if(peer === null || peer === undefined) {
                                         Janus.debug("Call started!");
+
                                     } else {
                                         Janus.debug(peer + " accepted the call!");
                                         self.otherPeer = peer;
@@ -428,6 +436,7 @@ SimpleVideoChat.prototype.registerUsername = function(username) {
         return;
     }
     var register = { "request": "register", "username": username };
+    self.username = username;
     self.chatHandler.send({"message": register});
 };
 

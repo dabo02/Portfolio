@@ -100,7 +100,7 @@ $(document).ready(function() {
 											if(event === 'registered') {
 												myusername = result["username"];
 												Janus.log("Successfully registered as " + myusername + "!");
-												$('#youok').removeClass('hide').show().html("Registered as '" + myusername + "'");
+
 												// Get a list of available peers, just for fun
 												videocall.send({"message": { "request": "list" }});
 												// TODO Enable buttons to call now

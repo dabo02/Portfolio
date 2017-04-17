@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Janus WebRTC Gateway: Video Call Demo</title>
+<title>Simple Video Call </title>
 <script type="text/javascript" src="/static/js/adapter.js" ></script>
 <script type="text/javascript" src="/static/js/jquery.min.js" ></script>
 <script type="text/javascript" src="/static/js/jquery.blockUI.js" ></script>
@@ -30,10 +30,13 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-12">
-			<div class="container homepage home-section text-center" id="videocall">
+            <div class="logo-holder logo-top-margin">
+                <a href="#" class="site-brand"><img src="/static/images/logo.png" alt=""></a>
+            </div>
+			<div class="container homepage home-section text-center" style="margin-top: 30px" id="videocall">
 				<div class="row">
-					<div class="col-md-12">
-						<h3>Simple Video Chat</h3>
+					<div class="col-md-12" id="intro">
+						<h3 style="color: #d9edf7">Simple Video Chat</h3>
 						<p>This is just a simple example which uses webRTC to perform a video call.</p>
 						<p>To Use it just register any alphanumeric username and open another window and repeat process or register through another device. After
 							registration use the input the username for the other device registered and enjoy a video call. On this video call you can send arbitrary data through the data channel
@@ -47,7 +50,7 @@
                                 <span class="input-group-addon"><i class="fa fa-user fa-fw"></i></span>
                                 <input class="form-control" type="text" placeholder="Choose a username" autocomplete="off" id="username" onkeypress="return videoCall.checkEnter(this, event);">
                             </div>
-                            <button class="btn btn-success margin-bottom-sm" type="submit" id="register" onclick="videoCall.buttonSubmit()">Register</button>
+                            <button class="btn btn-success margin-bottom-sm" type="submit" id="register" onclick="videoCall.buttonSubmit()">Register</button><span class="hide label label-info" id="youok"></span>
                         </div>
                         <div class="col-md-12 container hide" id="phone">
                             <div class="input-group margin-bottom-sm">
