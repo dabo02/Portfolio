@@ -3,7 +3,14 @@ from flask_mail import Message, Mail
 
 app = Flask(__name__)
 mail = Mail(app)
-
+app.config.update(DEBUG = True,
+    MAIL_SERVER = 'smtp.live.com',
+    MAIL_PORT = 587,
+    MAIL_USE_TLS = True,
+    MAIL_USE_SSL = False,
+    MAIL_USERNAME = 'dabo_02@live.com',
+    MAIL_PASSWORD = 'nomeronques2',
+    DEFAULT_MAIL_SENDER = 'dabo_02@live.com')
 
 @app.route('/')
 def my_site():
@@ -14,19 +21,18 @@ def my_site():
 def send_email():
     name = request.form['name']
     email = request.form['email']
-    subj = request.form['subject'] + ' from ' + name
+    subj = request.form['subject']
     msg = request.form['message']
     mail_to_send = Message(subject=subj,
                            recipients=['dabo021213@gmail.com'],
-                           body=msg,
-                           sender=email)
+                           body=msg + 'From: ' + name + ' with email: ' + email,
+                           sender=(name, email))
     # Send the message via our own SMTP server.
     mail.send(mail_to_send)
-    return redirect('/', code=200)
+    return redirect('/', code=301)
 
 if __name__ == '__main__':
     import socket as s
     if 'liveconsole' not in s.gethostname():
-        app.config['DEBUG'] = True
         mail.init_app(app)
         app.run()
