@@ -19,7 +19,7 @@ def send_email():
     msg = request.form['message']
 
     response = requests.post(
-        "https://api.mailgun.net/v3/sandbox899adf0b99c34a8786fd14968a854150.mailgun.org/messages",
+        os.environ.get('MAILGUN_LINK'),
         auth=("api", os.environ.get('API_KEY')),
         data={"from": 'Name: ' + name + ' Email: ' + email,
               "to": "Francisco Burgos <dabo021213@gmail.com>",
