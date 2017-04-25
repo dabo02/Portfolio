@@ -181,14 +181,6 @@ SimpleVideoChat.prototype.initialize = function(){
                             $('#videoleft').append('<video class="rounded centered" id="myvideo" width=320 height=240 autoplay muted="muted"/>');
                         Janus.attachMediaStream($('#myvideo').get(0), stream);
                         $("#myvideo").get(0).muted = "muted";
-                        $("#videoleft").parent().block({
-                            message: '<b>Publishing...</b>',
-                            css: {
-                                border: 'none',
-                                backgroundColor: 'transparent',
-                                color: 'white'
-                            }
-                        });
                         // No remote video yet
                         $('#videoright').append('<video class="rounded centered" id="waitingvideo" width=320 height=240 />');
                         if(spinner == null) {
