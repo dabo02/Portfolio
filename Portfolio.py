@@ -1,28 +1,9 @@
 from flask import Flask, render_template, request, redirect, url_for
-from flask_mail import Message, Mail
+import requests
 import socket as s
 import os
 app = Flask(__name__)
 host = s.gethostname()
-mail = Mail(app)
-if 'liveconsole' not in host:
-    app.config.update(DEBUG = True,
-        MAIL_SERVER = 'smtp.live.com',
-        MAIL_PORT = 587,
-        MAIL_USE_TLS = True,
-        MAIL_USE_SSL = False,
-        MAIL_USERNAME = os.environ.get('MAIL_USERNAME'),
-        MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD'),
-        DEFAULT_MAIL_SENDER = os.environ.get('MAIL_USERNAME'))
-else:
-    app.config.update(DEBUG = True,
-                      MAIL_SERVER = 'smtp.gmail.com',
-                      MAIL_PORT = 587,
-                      MAIL_USE_TLS = True,
-                      MAIL_USE_SSL = False,
-                      MAIL_USERNAME = os.environ.get('MAIL_USERNAME'),
-                      MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD'),
-                      DEFAULT_MAIL_SENDER = os.environ.get('MAIL_USERNAME'))
 
 
 @app.route('/')
@@ -36,17 +17,15 @@ def send_email():
     email = request.form['email']
     subj = request.form['subject']
     msg = request.form['message']
-    if 'liveconsole' not in host:
-        mail_to_send = Message(subject=subj,
-                               recipients=['dabo021213@gmail.com'],
-                               body=msg + ' From: ' + name + ' with email: ' + email,
-                               sender=(name, email))
-    else:
-        mail_to_send = Message(subject=subj,
-                               recipients=['dabo_02@live.com'],
-                               body=msg + ' From: ' + name + ' with email: ' + email,
-                               sender=(name, email))
-    mail.send(mail_to_send)
+
+    response = requests.post(
+        "https://api.mailgun.net/v3/sandbox899adf0b99c34a8786fd14968a854150.mailgun.org/messages",
+        auth=("api", os.environ.get('API_KEY')),
+        data={"from": 'Name: ' + name + ' Email: ' + email,
+              "to": "Francisco Burgos <dabo021213@gmail.com>",
+              "subject": subj,
+              "text": msg})
+
     return redirect('/', code=301)
 
 
@@ -56,5 +35,4 @@ def video_chat():
 
 if __name__ == '__main__':
     if 'liveconsole' not in host:
-        mail.init_app(app)
         app.run()
