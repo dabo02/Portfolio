@@ -4,8 +4,6 @@ var spinner = null;
 
 var audioenabled = false;
 var videoenabled = false;
-
-var myusername = null;
 var yourusername = null;
 
 function SimpleVideoChat(){
@@ -50,7 +48,7 @@ SimpleVideoChat.prototype.initialize = function(){
                             // Darken screen and show hint
                             var nav = navigator.mozGetUserMedia || navigator.webkitGetUserMedia;
                             $.blockUI({
-                                message: '<div><img src="up_arrow.png"/></div>',
+                                message: '<div><img src="/static/images/up_arrow.png"/></div>',
                                 css: {
                                     border: 'none',
                                     padding: '15px',
@@ -136,7 +134,7 @@ SimpleVideoChat.prototype.initialize = function(){
                                     $('#peer').removeAttr('disabled').val('');
                                     $('#call').removeAttr('disabled').html('Call')
                                         .removeClass("btn-danger").addClass("btn-success")
-                                        .unbind('click').click(doCall);
+                                        .unbind('click').click(self.doCall);
                                     $('#toggleaudio').attr('disabled', true);
                                     $('#togglevideo').attr('disabled', true);
                                     $('#bitrate').attr('disabled', true);
@@ -151,7 +149,7 @@ SimpleVideoChat.prototype.initialize = function(){
                             if(error.indexOf("already taken") > 0) {
                                 // FIXME Use status codes...
                                 $('#username').removeAttr('disabled').val("");
-                                $('#register').removeAttr('disabled').unbind('click').click(registerUsername);
+                                $('#register').removeAttr('disabled').unbind('click').click(self.registerUsername());
                             }
                             // TODO Reset status
                             self.chatHandler.hangup();
@@ -405,6 +403,10 @@ SimpleVideoChat.prototype.leaveRoom = function() {
 SimpleVideoChat.prototype.doCall = function(peer) {
     // Call someone
     var self = this;
+    if(peer === "" || peer === null){
+        peer = document.getElementById('peer').value;
+    };
+
     var username = peer;
     if(username === "") {
         bootbox.alert("Insert a username to call (e.g., pluto)");
