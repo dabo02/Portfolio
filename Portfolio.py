@@ -29,9 +29,13 @@ def send_email():
     return redirect('/', code=301)
 
 
+# @app.route('/video_chat')
+# def video_chat():
+#     return render_template('video_chat.html')
 @app.route('/video_chat')
 def video_chat():
-    return render_template('video_chat.html')
+    return render_template('chat.html')
+
 
 if __name__ == '__main__':
     if 'liveconsole' not in host:

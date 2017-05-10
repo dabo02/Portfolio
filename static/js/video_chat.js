@@ -121,6 +121,9 @@ SimpleVideoChat.prototype.initialize = function(){
                                     // Video call can start
                                     if(self.jsep)
                                         self.chatHandler.handleRemoteJsep({jsep: self.jsep});
+                                        $('#call').removeAttr('disabled').html('Hangup')
+                                        .removeClass("btn-success").addClass("btn-danger")
+                                        .unbind('click').click(doHangup);
                                     self.jsep = null;
                                 } else if(event === 'hangup') {
                                     Janus.log("Call hung up by " + result["username"] + " (" + result["reason"] + ")!");
@@ -378,6 +381,8 @@ SimpleVideoChat.prototype.registerUsername = function(username) {
 
 SimpleVideoChat.prototype.answerVideo = function(){
     var self = this;
+    $('#peer').val(self.otherPeer).attr('disabled');
+    $('#call').
     self.chatHandler.createAnswer(
         {
             jsep: self.jsep,
