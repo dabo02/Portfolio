@@ -13,12 +13,6 @@
         Rectangle Template 
         http://www.templatemo.com/preview/templatemo_439_rectangle
     	-->
-        <link rel="stylesheet" href="/static/css/normalize.css">
-        <link rel="stylesheet" href="/static/css/font-awesome.css">
-        <link rel="stylesheet" href="/static/components/fortawesome/font-awesome/v4.7.0/css/font-awesome.css">
-        <link rel="stylesheet" href="/static/css/bootstrap.min.css">
-        <link rel="stylesheet" href="/static/css/templatemo-style.css">
-        <script src="/static/js/vendor/modernizr-2.6.2.min.js"></script>
     </head>
     <body>
         <!--[if lt IE 7]>
@@ -87,11 +81,15 @@
                         <div id="menu-1" class="homepage home-section text-center">
                             <div class="welcome-text">
                                 <h2><strong>Francisco Burgos Collazo</strong></h2>
-                                <p><strong>Hi</strong>, I possess a Bachelor's in Science in Electrical Engineering majoring in Control Systems. Also, I have continued education
-                                & proven experience as a software developer. My mission is to continue gaining experience in a cooperative team environment, excelling in leadership skills,
-                                and to provide knowledge by freelance projects and/or professional consulting. My technical skills along with my designing skills enable be to consult in the
-                                areas of microprocessors, control systems, electrical systems, home automation, server automation, IoT and programming. It would be an honor to provide my
-                                services to help a company or individual attain its goals for the next project.</p>
+                                <p><strong>Hello</strong>, looking for services like <strong>Linux system administration, server automation, home automation,
+                                IoT developing, web page design, controls systems design, SIP and VOIP services?</strong> Then you've come to the right place.
+                                With a Bachelor's in Science in Electrical Engineering majoring in Control Systems and a solid background in software development, I
+                                will help you take your ideas for your next project to the next level. I will make it my mission to guarantee customer satisfaction by
+                                meeting your deadlines with stunningly fast deliverable rates. I am able to provide knowledge by either doing freelance projects and/or
+                                professional consulting. My technical skills along with my designing skills enable me to consult in the areas of microprocessors,
+                                control systems, electrical systems, home automation, server automation, IoT, programming, among others. It would be an honor to provide my
+                                services to help a company or individual attain its goals and make ideas a tangible thing.</p>
+                                <strong>For more info contact me via email under the 'Contact Me' Block</strong>
                                 <p><strong>Best Regards</strong></p>
                                 <p><strong>Francisco Burgos B.S.EE</strong></p>
                             </div>
@@ -187,33 +185,33 @@
                                     </div>
                                     <div class="col-md-4 col-sm-6 col-xs-12">
                                         <div class="project-item">
-                                            <a href="https://github.com/dabo02/lazyScraper"><img src="/static/images/2.jpg" alt=""></a>
+                                            <a href="https://github.com/dabo02/lazyScraper"><img src="/static/images/scraper.jpg" alt=""></a>
                                             <div class="project-hover">
-                                                <h4>Web Scraper- pdf Downloaderr</h4>
+                                                <button class="btn-link" data-target="#WebScraper" data-toggle="modal"><h4>Web Scraper for PDF files</h4></button>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-4 col-sm-6 col-xs-12">
                                         <div class="project-item">
-                                            <a href="https://github.com/dabo02/Portfolio"><img src="/static/images/2.jpg" alt=""></a>
+                                            <a href="https://github.com/dabo02/Portfolio"><img src="/static/images/site-ss.png" alt=""></a>
                                             <div class="project-hover">
-                                                <h4>This Site Project</h4>
+                                                <a href="https://github.com/dabo02/Portfolio"><h4>This Site Project</h4></a>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-4 col-sm-6 col-xs-12">
                                         <div class="project-item">
-                                            <a href="https://github.com/dabo02/SimpleVideoChat"><img src="/static/images/2.jpg" alt=""></a>
+                                            <a href="https://github.com/dabo02/Upwork_Tom_VideoShowroom"><img src="/static/images/RPi.jpg" alt=""></a>
                                             <div class="project-hover">
-                                                <h4>Simple Video Chat</h4>
+                                                <button class="btn-link" data-target="#RPiDesc" data-toggle="modal"><h4>Video Showroom</h4></button>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-4 col-sm-6 col-xs-12">
                                         <div class="project-item">
-                                            <a href="/video_chat"><img src="static/images/logo.png" alt=""></a>
+                                            <a href="/video_chat"><img src="/static/images/video-call.jpg" alt=""></a>
                                             <div class="project-hover">
-                                                <h4>Try the Simple Video Call</h4>
+                                                <button class="btn-link" data-target="#VideoChatDesc" data-toggle="modal"><h4>Try the Simple Video Call</h4></button>
                                             </div>
                                         </div>
                                     </div>
@@ -304,6 +302,111 @@
             </div>
         </div>
 
+        <!-- Web Scraper Modal -->
+        <div class="modal fade" id="WebScraper" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Lazyscraper PDF web scraper</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p class="text-justify">This side project is just a simple web scraper which scrapes <a href="http://www.allitebooks.com">allitebooks</a> and downloads pdf books for a given query.
+                            This project started because I have an insatiable thirst for knowledge and allitebooks has been my #1 source for finding a book for any programming related topic. I'd spend
+                            hours downloading books so I decided to automate that function form me, and the lazyScraper was created. Consisting of only a few lines of code the scraper will make a request
+                            with a user defined query and will navigate through all the links of the results to download each book related to the query's topic.</p>
+                        <p>The scraping is done using beautifulsoup which is a library for xml and html parsing for python 2 and 3. This project is available
+                            <a href="https://github.com/dabo02/Upwork_Tom_VideoShowroom">here</a> or by clicking on the image above the description button that opened this dialog.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+
+            </div>
+        </div> <!-- /Web Scraper Modal -->
+
+        <!-- Video Showroom Modal -->
+        <div class="modal fade" id="RPiDesc" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Video Showroom</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p class="text-justify">This was a freelancing project which involved playing an HD video and turning off everytime a door closed. The client
+                            made a 45&deg; inclined box with a door that turns on a light when open and on which the viewer sits. Once inside the door
+                            closes and the 1'&times;1' LED lamp turns off and the video starts. A raspberry was used for this project since it can render
+                            1080p HD video and uses a Debian based linux OS which I could use to my advantage.</p>
+
+                        <p>I decided to create a web interface on which the client could control most aspects of the system such as: </p>
+                        <ul style="display: list-item">
+                            <li><p> Reboot RPi</p> </li>
+                            <li><p> Shutdown RPi</p> </li>
+                            <li><p> Upload videos</p> </li>
+                            <li><p> Delete videos</p> </li>
+                            <li><p> Preview videos</p> </li>
+                            <li><p> Change current video</p> </li>
+                            <li><p> Test lighting</p> </li>
+                            <li><p> Start GPIO polling</p> </li>
+                            <li><p> Review documentation and contact info</p> </li>
+                        </ul>
+                        <p>For this task I used the web microframework <a href="http://flask.pocoo.org/">Flask</a> for the back-end routing and
+                            a <a href="http://www.celeryproject.org/">Celery</a> worker to take care of the GPIO polling.</p>
+                        <p>Now, for the server to be accesible as an offline interface I created a wi-fi hotspot on the raspberry pi using
+                            <strong><i>iptables, hostapd, and dnsmasq</i></strong>. This enabled the client to access the server by connecting to the pi's wi-fi and
+                            navegating to the pi's static ip on his browser.</p>
+                        <p>Also, since the client did not have much knowledge using unix based systems, a startup script was implemented using bash. This script
+                            was then moved to the init.rd folder and, through LSB headers, set to start after the Desktop interface has started. The client was then
+                            able to connect to the pi using the method descriped on the last paragraph.</p>
+                        <p> As for the elements used to wire the project a relay and limit switch controlled the output of the light and video. The relay isolated
+                            the 120V of the power outlet from the 5V raspberry pi output while the snap action limit switch controlled the relay's state. This project
+                            is available <a href="https://github.com/dabo02/Upwork_Tom_VideoShowroom">here</a> or by clicking on the image above the description button that opened this dialog.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+
+            </div>
+        </div> <!-- /Video Showroom Modal -->
+
+        <!-- Video Call Modal -->
+        <div class="modal fade" id="VideoChatDesc" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Video Call Description</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p class="text-justify">This is a simple video call on which we can have either customer service or a simple meeting for
+                        interview/requirements processes. When ready, click on the phone image above the button you just clicked to open this
+                        dialog window or click <a href="/video_chat">here</a>.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+
+            </div>
+        </div> <!-- /Video Showroom Modal -->
+        <link rel="stylesheet" href="/static/css/normalize.css">
+        <link rel="stylesheet" href="/static/css/font-awesome.css">
+        <link rel="stylesheet" href="/static/components/fortawesome/font-awesome/v4.7.0/css/font-awesome.css">
+        <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/static/css/templatemo-style.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="/static/js/vendor/modernizr-2.6.2.min.js"></script>
         <script src="/static/js/vendor/jquery-1.10.2.min.js"></script>
         <script src="/static/js/plugins.js"></script>
         <script src="/static/js/main.js"></script>
